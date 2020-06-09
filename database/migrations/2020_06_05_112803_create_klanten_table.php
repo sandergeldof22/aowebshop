@@ -16,6 +16,13 @@ class CreateKlantenTable extends Migration
         Schema::create('klanten', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->biginCrements('id');
+            $table->string('voornaam');
+            $table->string('achternaam');
+            $table->string('adress');
+            $table->string('postcode');
+            $table->string('telefoonnummer');
+            $table->string('emailadress');
         });
     }
 
