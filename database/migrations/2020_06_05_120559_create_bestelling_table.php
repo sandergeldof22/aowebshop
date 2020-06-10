@@ -16,7 +16,6 @@ class CreateBestellingTable extends Migration
         Schema::create('bestelling', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->biginCrements('id');
             $table->integer('klant_id');
             $table->string('klant_naam');
             $table->string('adress');
