@@ -29,7 +29,8 @@ html, body {
 
 .content {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 350px;
+    width: 100%;
 }
 
 .title {
@@ -118,7 +119,7 @@ li a:hover {
 }
 
 .flex-center{
-    display: inline-flex;
+    display: inline-block;
     text-align: center;
     width: 100%;    
 }
@@ -131,4 +132,28 @@ img{
     width: 50%;
 }
 
+.sidebar{
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+    border: 2px solid grey;
+}
+
+.products{
+    grid-row: 2 / 4;
+    grid-column: 2 / 6;
+    border: 2px solid grey;
+}
+
+.categories{
+    grid-row: 1 / 2;
+    grid-column: 2 / 6;
+    border: 2px solid grey;
+}
+
+.content-products {
+    grid-template-columns: auto auto auto auto auto;
+    width: 100%;
+    display: grid;
+    height: 750px;    
+}
 

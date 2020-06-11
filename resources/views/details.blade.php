@@ -16,17 +16,8 @@
                 </div>
             @endif
 
-            <div class="content-products">
-                <div class="sidebar">
-                    <h3>Sidebar</h3>
-                </div>
-                <div class="categories">
-                    <p>Hier komen de categorieën etc</p>
-                </div>
-                <div class="products">
-                    <p>hier komen producten</p>
-                    <p>dit komt nog met data</p>
-                </div>
+            <div class="test">
+                Wildcard parameter = {{ $id }}
             </div>
         </div>
 @endsection

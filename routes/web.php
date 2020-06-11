@@ -24,3 +24,7 @@ Route::get('/home', function () {
 Route::get('/shop', function () {
     return view('shop');
 });
+
+Route::get('/shop/{id}', function ($id) {
+    return view('details', ['id' => $id]);
+});
