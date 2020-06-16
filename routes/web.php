@@ -17,14 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/shop', 'ShopController@index');
 
-Route::get('/shop', function () {
-    return view('shop');
-});
 
-Route::get('/shop/{id}', function ($id) {
-    return view('details', ['id' => $id]);
-});
+Route::get('/shop/{id}', 'ShopController@show');
+
