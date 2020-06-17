@@ -16,8 +16,20 @@
                 </div>
             @endif
 
-            <div class="test">
-                Wildcard parameter = {{ $id }}
+            <div class="product-details">
+                <div class="product-information">
+                    <p>Product information</p>
+                    <p>informatie</p>
+                    Wildcard parameter = {{ $id }}
+                </div>
+                <div class="product-interactivity">
+                    <p>Product interactivity</p>
+                    <p>plaatjes en buttons</p>
+                </div>
+                <div class="product-description">
+                    <p>Product description</p>
+                    <p>een lange descripion</p>
+                </div>
             </div>
         </div>
 @endsection

@@ -19,9 +19,10 @@
             <div class="content-products">
                 <div class="sidebar">
                     <h3>Sidebar</h3>
+                    <h5>Hier komen de opties om te zoeken op categories, prijs etc</h5>
                 </div>
                 <div class="categories">
-                    <p>Hier komen de categorieën etc</p>
+                    <img class="banner" src="images/Nix.png">
                 </div>
                 <div class="products">
                     <p>hier komen producten</p>

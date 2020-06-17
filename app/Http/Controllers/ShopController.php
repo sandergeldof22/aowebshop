@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
 	public function index(){
-		return view('shop');
+		return view('shop/shop');
 	}
 
 	public function show($id){
-    	return view('details', ['id' => $id]);
+    	return view('shop/details', ['id' => $id]);
 	}
 }

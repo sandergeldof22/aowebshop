@@ -22,3 +22,11 @@ Route::get('/shop', 'ShopController@index');
 
 Route::get('/shop/{id}', 'ShopController@show');
 
+Route::get('/login', function() {
+	return view('login');
+});
+
+Route::get('/shoppingcart', function() {
+	return view('shoppingcart');
+});
+
