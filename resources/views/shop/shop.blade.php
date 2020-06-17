@@ -25,8 +25,13 @@
                     <img class="banner" src="images/Nix.png">
                 </div>
                 <div class="products">
-                    <p>hier komen producten</p>
-                    <p>dit komt nog met data</p>
+                    <div class="product">
+                        <img src="">
+                        <p>plaatje</p>
+                        <p>titel</p> 
+                        <p>Prijs</p>
+                        <p>winkel kart button</p>          
+                    </div>
                 </div>
             </div>
         </div>

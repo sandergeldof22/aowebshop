@@ -25,7 +25,7 @@
                 </div>
                 <div id="home-image-place">
                     <img src="images/soorten-tabak.jpg" id='home-image'>
-                    <h3>Met keuze uit al uv favoriete tabak</h3>
+                    <h3>Met keuze uit al uw favoriete tabak</h3>
                 </div>
                 </div>
             </div>
