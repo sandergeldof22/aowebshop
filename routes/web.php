@@ -19,14 +19,23 @@ Route::get('/', function () {
 
 Route::get('/shop', 'ShopController@index');
 
-
-Route::get('/shop/{id}', 'ShopController@show');
+Route::get('/shop/{id}', 'ShopController@details');
 
 Route::get('/login', function() {
 	return view('login');
 });
 
-Route::get('/shoppingcart', function() {
-	return view('shoppingcart');
-});
+Route::get('/shoppingcart', 'ShoppingcartController@index');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

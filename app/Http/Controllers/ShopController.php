@@ -10,7 +10,7 @@ class ShopController extends Controller
 		return view('shop/shop');
 	}
 
-	public function show($id){
+	public function details($id){
     	return view('shop/details', ['id' => $id]);
 	}
 }

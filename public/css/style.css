@@ -180,20 +180,21 @@ img{
     border: 2px solid grey;
     height: 400px;
     grid-row: 1 / 4 ;
-    grid-column: 1 / 4 ;
+    grid-column: 1 / 5 ;
 }
 
 .product-description{
     height: 300px;    
     border: 2px solid grey;
     grid-row: 4 / 6 ;
-    grid-column: 1 / 4 ;
+    grid-column: 1 / 5 ;
 }
 
 .product-interactivity{
+    text-align: center;
     border: 2px solid grey;
     grid-row: 1 / 6 ;
-    grid-column: 4 / 6 ;
+    grid-column: 5 / 6 ;
 }
 
 .loginorregister{
@@ -243,6 +244,125 @@ img{
 
 .product{
     margin: 10px;
+    padding: 6px;
     width: 300px;
     border: 2px solid lightgrey;
+}
+
+.product-image{
+    float: left;
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.Shoppingcart-button-small{
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #77d42a;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 14px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-bottom: 5px;
+}
+
+.Shoppingcart-button-small:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.Shoppingcart-button-small:active{
+    position: relative;
+    top: 1px;
+}
+
+.information-title{
+    text-decoration: underline;
+    text-decoration-color: lightgrey;   
+}
+
+.information-title:hover{
+    text-decoration: underline;
+    text-decoration-color: grey;   
+}
+
+.information-title:active{
+    text-decoration: underline;
+    text-decoration-color: purple;   
+}
+
+.filter-navigation{
+    margin: 30px;
+}
+
+#category-filter{
+    margin-top: 80px;
+}
+
+.filter-title{
+    text-decoration: underline;
+    text-decoration-color: lightgrey;
+}
+
+.Shoppingcart-button-big{
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #77d42a;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 26px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-top: 70px;
+}
+
+.Shoppingcart-button-big:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.Shoppingcart-button-big:active{
+    position: relative;
+    top: 1px;    
+}
+
+.Shoppingcart-button-pay{
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #6b5b95;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 26px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-top: 70px;
+}
+
+.Shoppingcart-button-pay:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;  
+}
+
+.Shoppingcart-button-pay:active{
+    position: relative;
+    top: 1px;    
 }
