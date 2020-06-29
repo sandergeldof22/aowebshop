@@ -23,6 +23,7 @@
             <div id="bottomnav">
                 <ul>
                     <li><a href="/login" id="login">Login</a></li>
+                    <li><a href="/register" id="login">Registreer</a></li>                    
                     <li><a href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart</a></li>                       
                 </ul>   
             </div>

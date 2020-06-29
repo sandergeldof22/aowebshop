@@ -5,12 +5,16 @@
 
             <div class="product-details">
                 <div class="product-information">
-                    <h2>Titel</h2>
-
-                    <p>Category</p>
-                    <p>Prijs</p>
-                    <p>Merk</p>
-                    Wildcard parameter = {{ $id }}
+                    <div class="product-image-holder">
+                        <img src="/images/Killa-Snus.jpg">
+                    </div>
+                    <div class="product-information-details">
+                        <h2>Titel</h2>
+                        <p>Category</p>
+                        <p>Prijs</p>
+                        <p>Merk</p>
+                        Wildcard parameter = {{ $id }}
+                    </div>
                 </div>
                 <div class="product-interactivity">
                     <a class="Shoppingcart-button-big" href="">Add to Shoppingcart</a>
