@@ -19,7 +19,7 @@ class CreateProductTable extends Migration
             $table->string('productnaam');
             $table->string('categorie');
             $table->string('omschrijving');
-            $table->blob('afbeelding');
+            $table->string('afbeelding');
             $table->float('prijs');
             $table->string('merk');
         });

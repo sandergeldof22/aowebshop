@@ -6,14 +6,13 @@
             <div class="product-details">
                 <div class="product-information">
                     <div class="product-image-holder">
-                        <img src="/images/Killa-Snus.jpg">
+                        <img src="/images/{{ $product->afbeelding }}">
                     </div>
                     <div class="product-information-details">
-                        <h2>Titel</h2>
-                        <p>Category</p>
-                        <p>Prijs</p>
-                        <p>Merk</p>
-                        Wildcard parameter = {{ $id }}
+                        <h2>{{ $product->productnaam }}</h2>
+                        <p>Categorie: {{ $product->categorie }}</p>
+                        <p>Prijs: &euro;{{ $product->prijs }}</p>
+                        <p>Merk: {{ $product->merk }}</p>
                     </div>
                 </div>
                 <div class="product-interactivity">
@@ -23,9 +22,10 @@
                     <p>&#10004; Dag- en Nacht klantenservice.</p>
                 </div>
                 <div class="product-description">
-                    <p>Product description</p>
-                    <p>een lange descripion</p>
+                    <p>{{ $product->omschrijving }}</p>
                 </div>
             </div>
         </div>
+
 @endsection
+
