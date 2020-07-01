@@ -16,15 +16,15 @@
             <div id="topnav">
                 <ul>
                     <li><p class="list-item" id="name-tag-navbar">Geldof's Tabakshop</p></li>
-                    <li><a href="/" class="list-item">Home</a></li>
-                    <li><a href="/shop" class="list-item">Shop</a></li>
+                    <li><a class="navbar-a" href="/" class="list-item">Home</a></li>
+                    <li><a class="navbar-a" href="/shop" class="list-item">Shop</a></li>
                 </ul>
             </div>
             <div id="bottomnav">
                 <ul>
-                    <li><a href="/login" id="login">Login</a></li>
-                    <li><a href="/register" id="login">Registreer</a></li>                    
-                    <li><a href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart</a></li>                       
+                    <li><a class="navbar-a" href="/login" id="login">Login</a></li>
+                    <li><a class="navbar-a" href="/register" id="login">Registreer</a></li>              
+                    <li><a class="navbar-a" href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart</a></li>                       
                 </ul>   
             </div>
         </div>

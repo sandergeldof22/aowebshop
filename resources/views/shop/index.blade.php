@@ -23,13 +23,18 @@
                     <img class="banner" src="images/Nix.png">
                 </div>
                 <div class="products">
-                    <div class="product">
-                        <img href="/shop/1" class="product-image" src="/images/Killa-Snus.jpg">
-                        <p>titel</p> 
-                        <p>Prijs</p>
-                        <a class="Shoppingcart-button-small" href="">Shoppingcart</a>    
-                        <a class="information-title" href="/shop/1">Meer info...</a>   
-                    </div>
+                    @foreach($product as $product)
+                    <li class="product-list">
+                        <div class="product">
+                            <img href="/shop/1" class="product-image" src="/images/{{ $product->afbeelding }}">
+                            <p>{{ $product['productnaam'] }}</p> 
+                            <p>&euro;{{ $product['prijs'] }}</p>
+                            <p>{{ $product['categorie'] }}</p>
+                            <a class="Shoppingcart-button-small" href="">Shoppingcart</a>    
+                            <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>   
+                        </div>
+                    </li>
+                    @endforeach
                 </div>
             </div>
         </div>
