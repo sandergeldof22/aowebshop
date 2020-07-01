@@ -3,7 +3,7 @@ html, body {
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
-    height: 100vh;
+    height: 100%;
     margin: 0;
 }
 
@@ -19,7 +19,6 @@ html, body {
 
 .position-ref {
     position: relative;
-    height: 1400px;
 }
 
 .top-right {
@@ -138,7 +137,7 @@ img{
     grid-row: 1 / 4;
     grid-column: 1 / 2;
     border: 2px solid grey;
-    height: 1308px;
+    height: 770px;
 
 }
 
@@ -147,7 +146,8 @@ img{
     grid-column: 2 / 8;
     border: 2px solid grey;
     min-height: 550px;
-    display: table;    
+    max-height: 720px;
+    overflow-y: auto;   
 }
 
 .categories{
@@ -162,7 +162,7 @@ img{
     grid-template-columns: auto auto auto auto auto auto auto;
     width: 100%;
     display: grid;
-    height: 750px;    
+    height: 770px;    
 }
 
 .banner{
@@ -253,7 +253,7 @@ img{
     margin: 10px;
     padding: 6px;
     height: 200px;
-    width: 350px;
+    width: 330px;
     border: 2px solid lightgrey;
 }
 
