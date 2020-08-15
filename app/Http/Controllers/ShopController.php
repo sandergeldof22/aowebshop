@@ -7,6 +7,7 @@ use App\Product;
 
 class ShopController extends Controller
 {
+
 	public function index(){
 
 		$products = Product::all();
@@ -21,6 +22,23 @@ class ShopController extends Controller
 		$product = Product::findOrFail($id);
 
     	return view('shop.show', ['product' => $product]);
+	}
+
+	public function filter(Request $request){
+
+		$categorieFilter = $request->input('categories');
+
+		if(empty($categorieFilter)){
+			$products = Product::all();
+		}else{
+			$products = Product::whereIn('categorie', $categorieFilter)
+		->get();	
+		}
+
+		return view('shop.index', [
+			'product' => $products,
+		]);
+		
 	}
 
 }

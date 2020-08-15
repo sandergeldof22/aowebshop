@@ -6,18 +6,22 @@
                 <div class="sidebar">
                     <h3>Sidebar</h3>
                     <h5>Hier komen de opties om te zoeken op categories, prijs etc</h5>
+                    <form action="" method="POST"> 
                     <div class="filter-navigation" id="category-filter">
                         <h2 class="filter-title">Categoriëen</h2>
+                        <?php $categories=DB::table('categories')->get(); ?>
                         <span class="checkbox-input">
-                            <input type="checkbox" name="" value="">Hier komt nog meer
+                        @foreach($categories as $categorie) 
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                            <input id="categorie-box{{$categorie->id}}" class="categorie-box" type="checkbox" name="categories[]" value="{{$categorie->naam}}">{{$categorie->naam}}
+                            <br>
+                            @if (in_array($categorie->id, explode(',', request()->input('filter.categorie'))))
+                                checked
+                            @endif
+                        @endforeach                            
                         </span>
                     </div>
-                    <div class="filter-navigation" id="price-filter">
-                        <h2 class="filter-title">Prijzen</h2>
-                        <span class="checkbox-input">
-                            <input type="checkbox" name="" value="">Hier komt nog meer
-                        </span>
-                    </div>
+                    <input type="submit" name="Filter">
                 </div>
                 <div class="categories">
                     <img class="banner" src="images/Nix.png">
@@ -27,9 +31,9 @@
                     <li class="product-list">
                         <div class="product">
                             <img href="/shop/1" class="product-image" src="/images/{{ $product->afbeelding }}">
-                            <p>{{ $product['productnaam'] }}</p> 
-                            <p>&euro;{{ $product['prijs'] }}</p>
-                            <p>{{ $product['categorie'] }}</p>
+                            <p class="productnaam"> {{ $product['productnaam'] }}</p> 
+                            <p class="productprijs"> &euro;{{ $product['prijs'] }}</p>
+                            <p class="productcategorie"> {{ $product['categorie'] }}</p>
                             <a class="Shoppingcart-button-small" href="">Shoppingcart</a>    
                             <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>   
                         </div>
@@ -38,5 +42,43 @@
                 </div>
             </div>
         </div>
+
+<script>
+
+// console.log($('.categorie-box').val());
+// console.log($('.productcategorie').html());
+// console.log($('.product'));
+// console.log($('.product').find('p.productcategorie').html());
+
+
+
+// jQuery(document).ready(function($) {
+// $('.categorie-box').click(function() {
+//     $('.categorie-box').each(function() {
+//     if ( !$(this).is(':checked')) {
+//         console.log('shit');
+//         console.log($('#categorie-box5').val()); //ontvangt alleen Sjek. de eerste van de boxen
+//         if($('.categorie-box').val() === $('.productcategorie').html()) {
+            
+//             if($('.product').find('p.productcategorie').html() === $('.productcategorie').html()) {
+//                 $(".product-list").hide(); 
+//                 alert('hooii');                
+//             }   
+//         }
+//     }
+//     // } else( $(this).is(':unchecked')) {
+//     //     if($('.categorie-box').val() === $('.productcategorie').html()) {
+//     //         if($('.product').find('p.productcategorie').html() === $('.productcategorie').html()) {
+//     //             $(".product-list").hide();                 
+//     //         }   
+//     //     }
+//     // }
+// })
+// })
+// }); 
+
+
+</script>
+
 @endsection
 

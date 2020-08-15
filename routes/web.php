@@ -18,14 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/shop', 'ShopController@index');
-
 Route::get('/shop/{id}', 'ShopController@details');
+// Route::get('/shop/create', 'ShopController@create');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	Route::get('/shop', 'ShopController@filter');
+	Route::post('/shop', 'ShopController@filter');
+}
+
 
 Route::get('/login', function() {
 	return view('login');
 });
 
 Route::get('/shoppingcart', 'ShoppingcartController@index');
+
+
+
+
 
 
 Auth::routes();

@@ -392,3 +392,12 @@ img{
 .product-list{
     list-style: none;
 }
+
+.checkbox-input{
+    vertical-align: middle;
+}
+
+.categorie-box{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
