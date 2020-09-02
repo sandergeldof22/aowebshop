@@ -412,7 +412,7 @@ img{
     align-items: center;
     width: 800px;
     justify-content: center;
-    height: 300px; 
+/*    height: 600px; */
     margin-bottom: 100px;
 }
 
@@ -435,4 +435,42 @@ img{
 .shoppingcart-welkom{
     margin: 0 auto;
     text-align: center;
+}
+
+.shoppingcart-product > span {
+    float: right;
+}
+
+.totale-prijs{
+    float: left;
+}
+
+.afrekenen{
+    float: right;
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #77d42a;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.afrekenen:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.afrekenen:active{
+    position: relative;
+    top: 1px;
 }

@@ -17,7 +17,7 @@ class Cart {
 	}
 
 	public function add($item, $id) {
-		$storedItem = ['item' => $item, 'quantity' => 0, 'price' => $item->prijs];
+		$storedItem = ['item' => $item, 'quantity' => 0, 'price' => $item->prijs, 'id' => $item->id];
 		if ($this->items) {
 			if (array_key_exists($id, $this->items)) {
 				$storedItem = $this->items[$id];
@@ -28,6 +28,7 @@ class Cart {
 		$this->items[$id] = $storedItem;
 		$this->totalQuantity++;
 		$this->totalPrice += $item->prijs;
+		// dd($storedItem);
 	}
 
 }
