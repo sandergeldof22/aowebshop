@@ -15,17 +15,19 @@
     <body>
         <div id="navbar">
             <div id="topnav">
-                <ul>
+                <ul class="navhelp">
                     <li><p class="list-item" id="name-tag-navbar">Geldof's Tabakshop</p></li>
                     <li><a class="navbar-a" href="/" class="list-item">Home</a></li>
                     <li><a class="navbar-a" href="/shop" class="list-item">Shop</a></li>
                 </ul>
             </div>
             <div id="bottomnav">
-                <ul>
+                <ul class="navhelp">
                     <li><a class="navbar-a" href="/login" id="login">Login</a></li>
                     <li><a class="navbar-a" href="/register" id="login">Registreer</a></li>              
-                    <li><a class="navbar-a" href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart</a></li>                       
+                    <li>
+                        <a class="navbar-a" href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart &nbsp; <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQuantity : "" }}</span></a>
+                    </li>                       
                 </ul>   
             </div>
         </div>

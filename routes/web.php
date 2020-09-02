@@ -17,34 +17,50 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop', 'ShopController@index');
-Route::get('/shop/{id}', 'ShopController@details');
-// Route::get('/shop/create', 'ShopController@create');
+Route::get('/shop', [
+	'uses' => 'ShopController@index',
+	'as' => 'shop.index'	
+]);
+
+Route::get('/shop/{id}', [
+	'uses' => 'ShopController@details',
+	'as' => 'shop.details'
+]);
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	Route::get('/shop', 'ShopController@filter');
-	Route::post('/shop', 'ShopController@filter');
+Route::get('/shop/', [
+	'uses' => 'ShopController@filter',
+	'as' => 'shop.filter'
+]);
+Route::post('/shop/', [
+	'uses' => 'ShopController@filter',
+	'as' => 'shop.filter'
+]);
 }
 
+Route::get('/addToCart/{id}', [
+	'uses' => 'ProductController@addToCart',
+	'as' => 'product.addToCart'
+]);
+
+Route::get('/shoppingcart', [
+	'uses' => 'ProductController@getShoppingCart',
+	'as' => 'product.shoppingCart'
+]);
 
 Route::get('/login', function() {
 	return view('login');
 });
 
-Route::get('/shoppingcart', 'ShoppingcartController@index');
-
-
-
-
+// Route::get('/shoppingcart', [
+// 	'uses' => 'ShoppingcartController@index',
+// 	'as' => 'shoppingcart.index'
+// ]);
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

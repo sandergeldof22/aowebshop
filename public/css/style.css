@@ -63,7 +63,7 @@ html, body {
     font-size: 18px;
 }
 
-ul {
+.navhelp {
   list-style-type: none;
   height: 50px;
   margin: 0;
@@ -72,10 +72,12 @@ ul {
   background-color: lightgrey;
 }
 
-li {
+.navhelp > li {
   float: left;
   font-size: 18px;
 }
+
+
 
 .navbar-a {
   display: block;
@@ -111,12 +113,12 @@ li {
 #topnav{
     overflow: hidden;
     float: left;
-    width: 75%;
+    width: 70%;
 }
 
 #bottomnav{
     float: right;
-    width: 25%;
+    width: 30%;
 }
 
 .flex-center{
@@ -391,6 +393,9 @@ img{
 
 .product-list{
     list-style: none;
+    float: left;
+    font-size: 18px;
+
 }
 
 .checkbox-input{
@@ -400,4 +405,34 @@ img{
 .categorie-box{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.shoppingcart-container{
+    margin: 0 auto;
+    align-items: center;
+    width: 800px;
+    justify-content: center;
+    height: 300px; 
+    margin-bottom: 100px;
+}
+
+.shoppingcart-product{
+    display: inline;
+    font-size: 22px;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.products-list-cart{
+    display: grid;
+    margin-top: 50px;    
+}
+
+.shoppingcart-price{
+    float: right;
+}
+
+.shoppingcart-welkom{
+    margin: 0 auto;
+    text-align: center;
 }

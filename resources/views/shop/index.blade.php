@@ -34,51 +34,13 @@
                             <p class="productnaam"> {{ $product['productnaam'] }}</p> 
                             <p class="productprijs"> &euro;{{ $product['prijs'] }}</p>
                             <p class="productcategorie"> {{ $product['categorie'] }}</p>
-                            <a class="Shoppingcart-button-small" href="">Shoppingcart</a>    
-                            <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>   
+                            <a class="Shoppingcart-button-small" href="{{ route('product.addToCart', ['id' => $product->id]) }}">Shoppingcart</a>    
+                            <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>  
                         </div>
                     </li>
                     @endforeach
                 </div>
             </div>
         </div>
-
-<script>
-
-// console.log($('.categorie-box').val());
-// console.log($('.productcategorie').html());
-// console.log($('.product'));
-// console.log($('.product').find('p.productcategorie').html());
-
-
-
-// jQuery(document).ready(function($) {
-// $('.categorie-box').click(function() {
-//     $('.categorie-box').each(function() {
-//     if ( !$(this).is(':checked')) {
-//         console.log('shit');
-//         console.log($('#categorie-box5').val()); //ontvangt alleen Sjek. de eerste van de boxen
-//         if($('.categorie-box').val() === $('.productcategorie').html()) {
-            
-//             if($('.product').find('p.productcategorie').html() === $('.productcategorie').html()) {
-//                 $(".product-list").hide(); 
-//                 alert('hooii');                
-//             }   
-//         }
-//     }
-//     // } else( $(this).is(':unchecked')) {
-//     //     if($('.categorie-box').val() === $('.productcategorie').html()) {
-//     //         if($('.product').find('p.productcategorie').html() === $('.productcategorie').html()) {
-//     //             $(".product-list").hide();                 
-//     //         }   
-//     //     }
-//     // }
-// })
-// })
-// }); 
-
-
-</script>
-
 @endsection
 
