@@ -37,7 +37,12 @@ Route::post('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
 ]);
+
 }
+// Route::get('/updateCart/{id}', [
+// 	'uses' => 'ProductController@updateCart',
+// 	'as' => 'product.updateCart'	
+// ]);
 
 Route::post('/updateCart/{id}', [
 	'uses' => 'ProductController@updateCart',

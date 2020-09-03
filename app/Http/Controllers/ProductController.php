@@ -23,7 +23,7 @@ class ProductController extends Controller
     	$cart = new Cart($oldCart);
     	$cart->add($product, $product->id);
 
-        dd($cart->items);
+        // dd($cart->items);
 
     	$request->session()->put('cart', $cart);
     	return redirect()->route('shop.index');
@@ -36,26 +36,27 @@ class ProductController extends Controller
     	}
     	$oldCart = Session::get('cart');
     	$cart = new Cart($oldCart);
+
     	return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
     }
 
     public function updateCart(Request $request, $id) {
-        echo 'hallo !';
-        $hoeveelheid = $request->input('updateCart');
-        $cart = Session::get('cart');
-        dd($hoeveelheid);
-
+        $hoeveelheid = $request->input('quantity');
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $product = Product::find($id);
+        
             if (Session::has('cart')) {
                 foreach ($cart->items as $item){
                     if ($item['item']['id'] == $id){
-                        $item['quantity'] = $hoeveelheid;
-                        break;
+                        $item['quantity'] = $hoeveelheid;                         
+                        $cart->updateItem($product, $id, $hoeveelheid);
                     }
                 }
                 Session::put('cart', $cart);
-                Session::save();                
+                Session::save();                                
             }
-            // return redirect()->route('shop.shoppingCart');
-        return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+            return redirect()->route('product.shoppingCart');
     }
 }

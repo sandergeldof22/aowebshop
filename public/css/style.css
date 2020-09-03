@@ -412,7 +412,6 @@ img{
     align-items: center;
     width: 800px;
     justify-content: center;
-/*    height: 600px; */
     margin-bottom: 100px;
 }
 
@@ -438,6 +437,11 @@ img{
 }
 
 .shoppingcart-product > span {
+    float: right;
+    font-size: 20px;
+}
+
+.cart-form-span{
     float: right;
 }
 

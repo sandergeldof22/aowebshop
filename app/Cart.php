@@ -28,7 +28,18 @@ class Cart {
 		$this->items[$id] = $storedItem;
 		$this->totalQuantity++;
 		$this->totalPrice += $item->prijs;
-		// dd($storedItem);
 	}
+
+	public function updateItem($item, $id, $quantity) {
+    	$this->items[$id]['quantity'] = $quantity;
+    	$this->items[$id]['price'] = $quantity * $item->prijs;
+
+    	$this->totalQuantity = 0;
+    	$this->totalPrice = 0;
+    		foreach($this->items as $item) {
+    			$this->totalQuantity += $item['quantity'];
+    			$this->totalPrice += $item['price'];
+    		}
+}
 
 }
