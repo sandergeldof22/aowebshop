@@ -4,8 +4,6 @@
         <div class="flex-center position-ref full-height">
             <div class="content-products">
                 <div class="sidebar">
-                    <h3>Sidebar</h3>
-                    <h5>Hier komen de opties om te zoeken op categories, prijs etc</h5>
                     <form action="" method="POST"> 
                     <div class="filter-navigation" id="category-filter">
                         <h2 class="filter-title">Categoriëen</h2>

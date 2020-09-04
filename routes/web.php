@@ -39,14 +39,10 @@ Route::post('/shop/', [
 ]);
 
 }
-// Route::get('/updateCart/{id}', [
-// 	'uses' => 'ProductController@updateCart',
-// 	'as' => 'product.updateCart'	
-// ]);
 
 Route::post('/updateCart/{id}', [
-	'uses' => 'ProductController@updateCart',
-	'as' => 'product.updateCart'
+	'uses' => 'ShoppingcartController@updateCart',
+	'as' => 'shoppingcart.updateCart'
 ]);
 
 Route::get('/addToCart/{id}', [
@@ -55,8 +51,8 @@ Route::get('/addToCart/{id}', [
 ]);
 
 Route::get('/shoppingcart', [
-	'uses' => 'ProductController@getShoppingCart',
-	'as' => 'product.shoppingCart'
+	'uses' => 'ShoppingcartController@getShoppingCart',
+	'as' => 'shoppingcart.shoppingCart'
 ]);
 
 Route::get('/login', function() {

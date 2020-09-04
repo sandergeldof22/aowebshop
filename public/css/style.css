@@ -77,8 +77,6 @@ html, body {
   font-size: 18px;
 }
 
-
-
 .navbar-a {
   display: block;
   color: white;
@@ -140,6 +138,7 @@ img{
     grid-column: 1 / 2;
     border: 2px solid grey;
     height: 770px;
+    width: 350px;
 
 }
 

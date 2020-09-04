@@ -23,8 +23,6 @@ class ProductController extends Controller
     	$cart = new Cart($oldCart);
     	$cart->add($product, $product->id);
 
-        // dd($cart->items);
-
     	$request->session()->put('cart', $cart);
     	return redirect()->route('shop.index');
 
@@ -53,10 +51,10 @@ class ProductController extends Controller
                         $item['quantity'] = $hoeveelheid;                         
                         $cart->updateItem($product, $id, $hoeveelheid);
                     }
-                }
-                Session::put('cart', $cart);
-                Session::save();                                
+
+                }                               
             }
             return redirect()->route('product.shoppingCart');
     }
+
 }

@@ -14,7 +14,7 @@
 				<img class="product-image" src="/images/{{ $product['item']['afbeelding'] }}">&nbsp;
 				<strong class="product-cart-naam">{{ $product['item']['productnaam'] }}</strong>
 				<span class="product-cart-prijs">Prijs per stuk: &euro;{{ $product['item']['prijs'] }}</span><br>
-				<form class="cart-form" method="post" action="{{ route('product.updateCart', ['id' => $product['id']]) }}">
+				<form class="cart-form" method="post" action="{{ route('shoppingcart.updateCart', ['id' => $product['id']]) }}">
 					<span class="cart-form-span"><label class="shopping-cart-quantity">Totale hoeveelheid:&nbsp;{{ $product['quantity'] }}</label>
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
 					<input type="number" id="quantity" name="quantity" value="{{ $product['quantity'] }}" min="0">
