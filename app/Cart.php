@@ -40,6 +40,6 @@ class Cart {
     			$this->totalQuantity += $item['quantity'];
     			$this->totalPrice += $item['price'];
     		}
-}
+    	}
 
 }

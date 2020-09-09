@@ -9,8 +9,6 @@
 
         <title>Laravel</title>
 
-
-
     </head>
     <body>
         <div id="navbar">
@@ -19,6 +17,7 @@
                     <li><p class="list-item" id="name-tag-navbar">Geldof's Tabakshop</p></li>
                     <li><a class="navbar-a" href="/" class="list-item">Home</a></li>
                     <li><a class="navbar-a" href="/shop" class="list-item">Shop</a></li>
+                    <li><a class="navbar-a" href="/orders" class="list-item">Orders</a></li>
                 </ul>
             </div>
             <div id="bottomnav">

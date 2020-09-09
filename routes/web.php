@@ -37,8 +37,12 @@ Route::post('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
 ]);
-
 }
+
+Route::get('/addAndGetShoppingCart/{id}', [
+	'uses' => 'ProductController@addAndGetShoppingCart',
+	'as' => 'product.addAndGetShoppingCart'	
+]);
 
 Route::post('/updateCart/{id}', [
 	'uses' => 'ShoppingcartController@updateCart',
@@ -53,6 +57,16 @@ Route::get('/addToCart/{id}', [
 Route::get('/shoppingcart', [
 	'uses' => 'ShoppingcartController@getShoppingCart',
 	'as' => 'shoppingcart.shoppingCart'
+]);
+
+Route::get('/checkout', [
+	'uses' => 'ShopController@toCheckOut',
+	'as' => 'shop.checkOut'	
+]);
+
+Route::get('/orders/', [
+	'uses' => 'OrderController@index',
+	'as' => 'order.orders'
 ]);
 
 Route::get('/login', function() {

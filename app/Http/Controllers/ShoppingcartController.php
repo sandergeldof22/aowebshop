@@ -40,8 +40,13 @@ class ShoppingcartController extends Controller
                     }
                 }                                           
             }
-            // dd($cart);
             $request->session()->put('cart', $cart);
             return redirect()->route('shoppingcart.shoppingCart');
+    }
+
+    public function saveCart(Request $request, $id) {
+        $cart = Session::get('cart');
+        dd($cart);
+        
     }
 }

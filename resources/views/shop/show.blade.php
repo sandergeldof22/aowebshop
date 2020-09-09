@@ -16,8 +16,8 @@
                     </div>
                 </div>
                 <div class="product-interactivity">
-                    <a class="Shoppingcart-button-big" href="">Add to Shoppingcart</a>
-                    <a class="Shoppingcart-button-pay" href="">Add and go to Payment</a>
+                    <a class="Shoppingcart-button-big" href="{{ route('product.addToCart', ['id' => $product->id]) }}">Add to Shoppingcart</a>
+                    <a class="Shoppingcart-button-pay" href="{{ route('product.addAndGetShoppingCart', ['id' => $product->id]) }}">Add and go to Payment</a>
                     <p>&#10004; Geldof's Garantie garandeert voor 30 dagen.</p>
                     <p>&#10004; Dag- en Nacht klantenservice.</p>
                 </div>
@@ -27,4 +27,5 @@
             </div>
         </div>
 @endsection
+
 

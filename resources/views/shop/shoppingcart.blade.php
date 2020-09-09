@@ -27,7 +27,7 @@
 			@endforeach
 		</ul>
 		<h3 class="totale-prijs">Totale Prijs: &euro; {{ $totalPrice }}</h3>
-		<button class="afrekenen">Betalen</button>
+		<a class="shoppingcart-button" href="{{ route('shop.checkOut') }}">Afrekenen</a>
 		@else
 		<h2>Voeg alstublieft producten toe aan de shoppingcart !</h2>
 		@endif	

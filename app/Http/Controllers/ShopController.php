@@ -41,4 +41,12 @@ class ShopController extends Controller
 		
 	}
 
+	public function toCheckOut() {
+        return view('shop.checkOut');
+    }
+
+    public function saveOrder() {
+    	return view('order.orders.');
+    }
+
 }
