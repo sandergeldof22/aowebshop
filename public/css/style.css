@@ -268,6 +268,10 @@ img{
     max-width: 150px;
 }
 
+.product > .product-image{
+    margin-bottom: 20px;
+}
+
 .Shoppingcart-button-small{
     float: left;
     box-shadow: inset 0px 1px 0px 0px #caefab;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Product_Categories;
 
 class ShopController extends Controller
 {
@@ -29,14 +30,15 @@ class ShopController extends Controller
 		$categorieFilter = $request->input('categories');
 
 		if(empty($categorieFilter)){
-			$products = Product::all();
+			$filteredProducts = Product::all();
 		}else{
-			$products = Product::whereIn('categorie', $categorieFilter)
-		->get();	
+			// $filteredId = Product_categories::where('categories_id', $categorieFilter);
+
+			$filteredProducts = Product::Where('categorie_id', $categorieFilter)->get();
 		}
 
 		return view('shop.index', [
-			'product' => $products,
+			'product' => $filteredProducts,
 		]);
 		
 	}
@@ -46,7 +48,7 @@ class ShopController extends Controller
     }
 
     public function saveOrder() {
-    	return view('order.orders.');
+    	return view('order.orders');
     }
 
 }

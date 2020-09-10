@@ -11,7 +11,7 @@
                         <span class="checkbox-input">
                         @foreach($categories as $categorie) 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <input id="categorie-box{{$categorie->id}}" class="categorie-box" type="checkbox" name="categories[]" value="{{$categorie->naam}}">{{$categorie->naam}}
+                            <input id="categorie-box{{$categorie->id}}" class="categorie-box" type="checkbox" name="categories[]" value="{{$categorie->id}}">{{$categorie->naam}}
                             <br>
                             @if (in_array($categorie->id, explode(',', request()->input('filter.categorie'))))
                                 checked
@@ -31,7 +31,7 @@
                             <img href="/shop/1" class="product-image" src="/images/{{ $product->afbeelding }}">
                             <p class="productnaam"> {{ $product['productnaam'] }}</p> 
                             <p class="productprijs"> &euro;{{ $product['prijs'] }}</p>
-                            <p class="productcategorie"> {{ $product['categorie'] }}</p>
+<!--                             <p class="productcategorie"> {{ $product['categorie_id'] }}</p> -->
                             <a class="Shoppingcart-button-small" href="{{ route('product.addToCart', ['id' => $product->id]) }}">Add to Shoppingcart</a>    
                             <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>  
                         </div>

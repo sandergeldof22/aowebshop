@@ -28,7 +28,7 @@ Route::get('/shop/{id}', [
 ]);
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 Route::get('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
@@ -37,7 +37,7 @@ Route::post('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
 ]);
-}
+
 
 Route::get('/addAndGetShoppingCart/{id}', [
 	'uses' => 'ProductController@addAndGetShoppingCart',
