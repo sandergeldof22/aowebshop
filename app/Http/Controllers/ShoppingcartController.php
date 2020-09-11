@@ -44,9 +44,4 @@ class ShoppingcartController extends Controller
             return redirect()->route('shoppingcart.shoppingCart');
     }
 
-    public function saveCart(Request $request, $id) {
-        $cart = Session::get('cart');
-        dd($cart);
-        
-    }
 }

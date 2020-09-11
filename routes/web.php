@@ -37,7 +37,8 @@ Route::post('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
 ]);
-
+// } 
+/* In geval van een nieuwe migration moet de request method weggehaald worden */
 
 Route::get('/addAndGetShoppingCart/{id}', [
 	'uses' => 'ProductController@addAndGetShoppingCart',
@@ -47,6 +48,12 @@ Route::get('/addAndGetShoppingCart/{id}', [
 Route::post('/updateCart/{id}', [
 	'uses' => 'ShoppingcartController@updateCart',
 	'as' => 'shoppingcart.updateCart'
+]);
+
+
+Route::post('/saveOrder', [
+	'uses' => 'ShopController@saveOrder',
+	'as' => 'shop.saveOrder'		
 ]);
 
 Route::get('/addToCart/{id}', [
@@ -72,12 +79,6 @@ Route::get('/orders/', [
 Route::get('/login', function() {
 	return view('login');
 });
-
-
-// Route::get('/shoppingcart', [
-// 	'uses' => 'ShoppingcartController@index',
-// 	'as' => 'shoppingcart.index'
-// ]);
 
 
 Auth::routes();
