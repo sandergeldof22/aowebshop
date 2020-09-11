@@ -38,4 +38,12 @@ class ProductController extends Controller
         return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);  
     }
 
+    public function saveCart() {
+        if (!Session::has('cart')) {
+            return view('shop.shoppingCart');
+        }        
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            dd($cart);
+
 }

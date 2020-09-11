@@ -27,8 +27,6 @@ Route::get('/shop/{id}', [
 	'as' => 'shop.details'
 ]);
 
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 Route::get('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
@@ -37,8 +35,6 @@ Route::post('/shop/', [
 	'uses' => 'ShopController@filter',
 	'as' => 'shop.filter'
 ]);
-// } 
-/* In geval van een nieuwe migration moet de request method weggehaald worden */
 
 Route::get('/addAndGetShoppingCart/{id}', [
 	'uses' => 'ProductController@addAndGetShoppingCart',

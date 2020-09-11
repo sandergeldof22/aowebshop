@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->float('klanten_id');
             $table->float('totale_prijs');
-            $table->float('user_id');
+            $table->float('user_id')->nullable();
         });
     }
 

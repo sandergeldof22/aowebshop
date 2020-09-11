@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Orders;
+use App\Order_details;
 use App\Klanten;
+use App\Cart;
 use App\Product_Categories;
+// use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class ShopController extends Controller
@@ -35,7 +39,7 @@ class ShopController extends Controller
 		if(empty($categorieFilter)){
 			$filteredProducts = Product::all();
 		}else{
-			$filteredProducts = Product::Where('categorie_id', $categorieFilter)->get();
+			$filteredProducts = Product::WhereIn('categorie_id', $categorieFilter)->get();
 		}
 
 		return view('shop.index', [
@@ -46,6 +50,7 @@ class ShopController extends Controller
 
 	public function toCheckOut() {
         return view('shop.checkOut');
+
     }
 
     public function saveOrder() {
@@ -62,8 +67,37 @@ class ShopController extends Controller
 
     	$klant->save();
 
+    	if (!Session::has('cart')) {
+            return view('shop.shoppingCart');
+        }  
+
+        $cart = Session::has('cart') ? Session::get('cart') : null;
+        
+		$order_details = new Order_details();
+		$order = new Orders();
+
+		if(Auth::check() == false) {
+			$order->klanten_id = $klant->id;
+			$order->totale_prijs = $cart->totalPrice;
+			$order->save();
+		}else{
+			$order->user_id = $users->id;
+		} //dit hierboven moet nog verder afgewerkt worden
+
+        foreach($cart->items as $item){
+        	$infoId = $item['id'];
+        	$infoQuantity = $item['quantity'];
+        	$infoPrice = $item['price'];
+
+			$order_details->product_id = $infoId;
+			$order_details->quantiteit = $infoQuantity;
+			$order_details->prijs = $infoPrice;
+        }
+
+
+
+    	$order_details->save();
     	return redirect('/');
-    	// return view('order.orders');
     }
 
 }
