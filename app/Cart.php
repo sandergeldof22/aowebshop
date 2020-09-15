@@ -34,11 +34,15 @@ class Cart {
     	$this->items[$id]['quantity'] = $quantity;
     	$this->items[$id]['price'] = $quantity * $item->prijs;
 
+    	if ($this->items[$id]['quantity'] == 0) {
+    		unset($this->items[$id]);
+    	}    	
+
     	$this->totalQuantity = 0;
     	$this->totalPrice = 0;
     		foreach($this->items as $item) {
     			$this->totalQuantity += $item['quantity'];
-    			$this->totalPrice += $item['price'];
+    			$this->totalPrice += $item['price'];    			
     		}
     }
 

@@ -47,15 +47,5 @@ class ShoppingcartController extends Controller
             return redirect()->route('shoppingcart.shoppingCart');
     }
 
-    // public function saveCart() {
-    //     if (!Session::has('cart')) {
-    //         return view('shop.shoppingCart');
-    //     }        
-    //     $oldCart = Session::has('cart') ? Session::get('cart') : null;
-    //     $cart = new Cart($oldCart);
-
-
-    // }
-
 
 }

@@ -46,7 +46,6 @@ Route::post('/updateCart/{id}', [
 	'as' => 'shoppingcart.updateCart'
 ]);
 
-
 Route::post('/saveOrder', [
 	'uses' => 'ShopController@saveOrder',
 	'as' => 'shop.saveOrder'		
