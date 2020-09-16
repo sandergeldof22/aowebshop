@@ -530,3 +530,22 @@ img{
 .checkout-form > label{
     font-size: 18px;
 }
+
+.order-box{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: lightgrey;
+}
+
+.order-list{
+    list-style-type: none;
+}
+
+.bestelling-intro{
+    text-align: center;
+}
+
+.bestelling-klik{
+    margin: 20px;
+}
+

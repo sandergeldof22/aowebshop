@@ -70,19 +70,25 @@ class ShopController extends Controller
         }  
 
         $cart = Session::has('cart') ? Session::get('cart') : null;
-
         
 		$order_details = new Order_details();
 		$order = new Orders();
 
+    	$voornaam = $klant->voornaam;
+    	$achternaam = $klant->achternaam;
+    	$naam = $voornaam . ' ' . $achternaam;		
+
 		if(Auth::check() == false) {
 			$order->klanten_id = $klant->id;
 			$order->totale_prijs = $cart->totalPrice;
+			$order->klanten_naam = $naam;			
 			$order->save();
 		}else{
-			$order->klanten_id = $klant->id;
 			$order->totale_prijs = $cart->totalPrice;
-			$order->user_id = $users->id;
+			$users = auth()->user()->id;
+			$order->user_id = $users;
+			$order->klanten_id = $klant->id;
+			$order->klanten_naam = $naam;			
 			$order->save();
 		}
 
@@ -90,11 +96,13 @@ class ShopController extends Controller
         	$infoId = $item['id'];
         	$infoQuantity = $item['quantity'];
         	$infoPrice = $item['price'];
+        	$Order_Id = $order->id;
 
 			$order_details = new Order_details();        	
 			$order_details->product_id = $infoId;
 			$order_details->quantiteit = $infoQuantity;
 			$order_details->prijs = $infoPrice;
+			$order_details->order_id = $Order_Id;
 
     		$order_details->save();
         };
