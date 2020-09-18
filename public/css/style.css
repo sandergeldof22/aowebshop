@@ -533,8 +533,9 @@ img{
 
 .order-box{
     width: 1200px;
+    height: 2000px;
     margin: 0 auto;
-    background-color: lightgrey;
+    border: 1px solid black;
 }
 
 .order-list{
@@ -543,9 +544,62 @@ img{
 
 .bestelling-intro{
     text-align: center;
+    border: 1px solid black;
 }
 
 .bestelling-klik{
     margin: 20px;
+    grid-template-columns: 50% 50%; 
+    display: grid;
 }
+
+.information-opener{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.bestelling-images{
+    float: left;
+    max-height: 100px;
+    max-width: 130px;
+    margin: 10px;
+}
+
+#bestelling-adress-gegevens{
+    border: 1px solid black;
+    float: right;
+    height: 300px;   
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3; 
+}
+
+#bestelling-producten-gegevens{
+    border: 1px solid black;
+    float: left;
+    height: 300px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    overflow-y: auto;
+}
+
+.bestelling-producten{
+    height: 100px;
+    margin: 35px;
+}
+
+#bestelling-betaal-gegevens{
+    border: 1px solid black;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
 
