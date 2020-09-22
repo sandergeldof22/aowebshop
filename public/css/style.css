@@ -533,7 +533,6 @@ img{
 
 .order-box{
     width: 1200px;
-    height: 2000px;
     margin: 0 auto;
     border: 1px solid black;
 }
@@ -544,13 +543,17 @@ img{
 
 .bestelling-intro{
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .bestelling-klik{
     margin: 20px;
     grid-template-columns: 50% 50%; 
     display: grid;
+}
+
+#bestelling-betaal-gegevens{
+    padding: 10px;
 }
 
 .information-opener{
@@ -576,6 +579,7 @@ img{
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3; 
+    padding: 10px;
 }
 
 #bestelling-producten-gegevens{
@@ -587,6 +591,7 @@ img{
     grid-row-start: 2;
     grid-row-end: 3;
     overflow-y: auto;
+    padding: 10px;
 }
 
 .bestelling-producten{
@@ -600,6 +605,110 @@ img{
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
+}
+
+.register-box{
+    margin: 0 auto;
+    align-items: center;
+    width: 600px;
+    border: 1px solid black;
+    height: 475px;
+}
+
+.login-input{
+    width: 100%;
+    padding: 10px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid black 0.5px;
+}
+
+.login-group{
+    margin: 10px;
+    align-items: center;
+}
+
+.auth-button{
+    float: left;
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #77d42a;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.auth-button:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.register-styles{
+    margin: 20px;
+}
+
+.register-title, .login-title{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.login-title{
+    margin-top: 10px;
+}
+
+.login-box{
+    margin: 0 auto;
+    align-items: center;
+    width: 600px;
+    border: 1px solid black;
+    height: 325px;
+}
+
+.login-submit{
+   text-align: center;
+}
+
+.login-forgot{
+    padding-top: 15px;
+}
+
+.dropdown-menu{
+  margin-top: -5px;
+  display: none;
+  position: absolute;
+  background-color: lightgrey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu > a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu:hover{
+    background-color: grey;
+}
+
+.logged-in{
+  display: inline-block;
+}
+
+.logged-in:hover > div {
+  display: block;
 }
 
 

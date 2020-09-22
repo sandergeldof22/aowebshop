@@ -5,10 +5,10 @@
         <script type="text/javascript" src="{{ URL::asset('js/openOrderInfo.js') }}"></script>        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         
-
         <title>Laravel</title>
 
     </head>
@@ -24,8 +24,30 @@
             </div>
             <div id="bottomnav">
                 <ul class="navhelp">
-                    <li><a class="navbar-a" href="/login" id="login">Login</a></li>
-                    <li><a class="navbar-a" href="/register" id="login">Registreer</a></li>              
+                    @guest
+                        <li><a class="navbar-a" href="/login" id="login">Login</a></li>
+                        @if (Route::has('register'))
+                            <li><a class="navbar-a" href="/register" id="login">Registreer</a></li>
+                        @endif
+                    @else 
+                            <li class="logged-in">
+                                <a id="User-logged-in" class="navbar-a" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest             
                     <li>
                         <a class="navbar-a" href="/shoppingcart" id="shoppingcart-navbar">Shoppingcart &nbsp; <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQuantity : "" }}</span></a>
                     </li>                       
