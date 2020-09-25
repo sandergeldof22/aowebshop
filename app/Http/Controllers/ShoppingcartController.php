@@ -31,21 +31,45 @@ class ShoppingcartController extends Controller
             return view('shop.shoppingCart');
         }        
         $hoeveelheid = $request->input('quantity');
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $oldCart = Session::has('cart') ? Session::get('cart') : null; //null nog nodig hier?
         $cart = new Cart($oldCart);
         $product = Product::find($id);
         
-            if (Session::has('cart')) {
                 foreach ($cart->items as $item){
                     if ($item['item']['id'] == $id){
                         $item['quantity'] = $hoeveelheid;                    
                         $cart->updateItem($product, $id, $hoeveelheid);
                     }
-                }                                           
-            }
+                } 
+        if (empty($cart->items)){
+            $request->session()->pull('cart', $cart);
+        } else {
             $request->session()->put('cart', $cart);
-            return redirect()->route('shoppingcart.shoppingCart');
+        }
+
+        return redirect()->route('shoppingcart.shoppingCart');
     }
 
+    public function deleteFromCart(Request $request, $id){
+        if (!Session::has('cart')) {
+            return view('shop.shoppingCart');
+        }  
+        $oldCart = Session::has('cart') ? Session::get('cart') : null; //null nog nodig hier?
+        $cart = new Cart($oldCart); 
+        $product = Product::find($id);
+
+        foreach($cart->items as $item){
+            if ($item['id'] == $id){               
+                $cart->deleteItem($item, $id);         
+            }
+        }
+        if (empty($cart->items)){
+            $request->session()->pull('cart', $cart);
+        } else {
+            $request->session()->put('cart', $cart);
+        }
+        
+        return redirect()->route('shoppingcart.shoppingCart');         
+    }
 
 }

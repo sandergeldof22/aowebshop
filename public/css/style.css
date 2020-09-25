@@ -89,6 +89,13 @@ html, body {
   background-color: grey;
 }
 
+.productquantiteit{
+    width: 85px;
+    margin-top: 80px;
+    float: left;
+    margin-left: -120px;
+}
+
 
 .list-item{
     margin-left: 50px;
@@ -258,13 +265,21 @@ img{
     border: 2px solid lightgrey;
 }
 
-.product > p{
-    margin: 10px; 
+.product-form{
+    margin-top: -15px;
+}
+
+.productnaam, .productprijs{
+    margin-bottom: 0px;
+}
+
+.productprijs{
+    margin-top: 5px;
 }
 
 .product-image{
     float: left;
-    max-height: 100px;
+    max-height: 80px;
     max-width: 150px;
 }
 
@@ -273,7 +288,7 @@ img{
 }
 
 .Shoppingcart-button-small{
-    float: left;
+    float: right;
     box-shadow: inset 0px 1px 0px 0px #caefab;
     background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
     background-color: #77d42a;
@@ -288,7 +303,7 @@ img{
     padding: 6px 10px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #aade7c;
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left: 20px;
 }
 
@@ -515,6 +530,10 @@ img{
     background-color: #5cb811;
 }
 
+.shoppingcart-none{
+    margin-left: 100px;
+}
+
 .customer-information{
     margin: 0 auto;  
     width: 60%;   
@@ -612,7 +631,7 @@ img{
     align-items: center;
     width: 600px;
     border: 1px solid black;
-    height: 475px;
+    height: 510px;
 }
 
 .login-input{
@@ -663,7 +682,7 @@ img{
     font-weight: bold;
 }
 
-.login-title{
+.login-title, .email-title{
     margin-top: 10px;
 }
 
@@ -711,4 +730,79 @@ img{
   display: block;
 }
 
+.reset-holder{
+    margin: 0 auto;
+    align-items: center;
+    width: 600px;
+    border: 1px solid black;
+    height: 325px; 
+    padding: 10px;
+}
 
+.email-holder, .confirm-holder, .home-holder{
+    margin: 0 auto;
+    align-items: center;
+    width: 500px;
+    border: 1px solid black;
+    height: 180px; 
+    padding: 10px;    
+}
+
+.email-title, .confirm-title{
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.email-input, .confirm-input{
+    width: 100%;
+    padding: 10px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: solid black 0.5px;
+}
+
+.confirm-link{
+    font-size: 16px;
+}
+
+.home-header{
+    font-size: 20px;
+    text-align: center;
+}
+
+.home-welkom{
+    text-align: center;
+    margin: 8px;
+}
+
+.welcome-button{
+    align-items: center;
+    box-shadow: inset 0px 1px 0px 0px #caefab;
+    background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+    background-color: #77d42a;
+    border-radius: 6px;
+    border: 1px solid #268a16;
+    display: inline-block;
+    cursor: pointer;
+    color: #306108;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #aade7c;
+    margin-top: 10px;
+    margin-left: 175px;
+}
+
+.welcome-button:hover{
+    background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+    background-color: #5cb811;
+}
+
+.deletebutton{
+    background-color: red;
+    float: right;
+    margin-left: 10px;
+}

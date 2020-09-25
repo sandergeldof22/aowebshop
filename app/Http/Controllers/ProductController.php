@@ -18,9 +18,10 @@ class ProductController extends Controller
 
     public function addToCart(Request $request, $id) {
     	$product = Product::find($id);
+        $quantity = $request->input('quantity');
     	$oldCart = Session::has('cart') ? Session::get('cart') : null;
     	$cart = new Cart($oldCart);
-    	$cart->add($product, $product->id);
+    	$cart->add($product, $product->id, $quantity);
 
     	$request->session()->put('cart', $cart);
         return redirect('/shop');

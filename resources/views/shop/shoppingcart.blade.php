@@ -13,11 +13,12 @@
 			<li class="shoppingcart-product">
 				<img class="product-image" src="/images/{{ $product['item']['afbeelding'] }}">&nbsp;
 				<strong class="product-cart-naam">{{ $product['item']['productnaam'] }}</strong>
-				<span class="product-cart-prijs">Prijs per stuk: &euro;{{ $product['item']['prijs'] }}</span><br>
+				<button onclick="location.href='{{ route('shoppingcart.deleteFromCart', ['id' => $product['id']]) }}'" class="deletebutton">X</button>			
+				&nbsp;<span class="product-cart-prijs">Prijs per stuk: &euro;{{ $product['item']['prijs'] }}</span><br>
 				<form class="cart-form" method="post" action="{{ route('shoppingcart.updateCart', ['id' => $product['id']]) }}">
 					<span class="cart-form-span"><label class="shopping-cart-quantity">Totale hoeveelheid:&nbsp;{{ $product['quantity'] }}</label>
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
-					<input type="number" id="quantity" name="quantity" value="{{ $product['quantity'] }}" min="0">
+					<input type="number" id="quantity" required="required" name="quantity" value="{{ $product['quantity'] }}" min="0">
 					<input type="submit" name="updateCart"></span>
 					<br>
 				</form>
@@ -29,7 +30,7 @@
 		<h3 class="totale-prijs">Totale Prijs: &euro; {{ $totalPrice }}</h3>
 		<a class="shoppingcart-button" href="{{ route('shop.checkOut') }}">Afrekenen</a>
 		@else
-		<h2>Voeg alstublieft producten toe aan de shoppingcart !</h2>
+		<h2 class="shoppingcart-none">Voeg alstublieft producten toe aan de shoppingcart !</h2>
 		@endif	
 	</div>
 </div>

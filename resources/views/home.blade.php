@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="top-image-holder">
+        <img class="order-banner" src="../images/Nix.png">
+    </div>
+        <div class="home-holder">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="home-header">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +16,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h2 class="home-welkom">You are now logged in</h2>
+                    <h2 class="home-welkom">Welkom {{ Auth::user()->name }} !</h2>
+                    <a href="/" class="welcome-button">Naar de homepagina</a>
                 </div>
             </div>
         </div>

@@ -20,6 +20,7 @@
                         </span>
                     </div>
                     <input type="submit" name="Filter">
+                    </form>
                 </div>
                 <div class="categories">
                     <img class="banner" src="images/Nix.png">
@@ -28,11 +29,14 @@
                     @foreach($product as $product)
                     <li class="product-list">
                         <div class="product">
-                            <img href="/shop/1" class="product-image" src="/images/{{ $product->afbeelding }}">
-                            <p class="productnaam"> {{ $product['productnaam'] }}</p> 
-                            <p class="productprijs"> &euro;{{ $product['prijs'] }}</p>
-                            <a class="Shoppingcart-button-small" href="{{ route('product.addToCart', ['id' => $product->id]) }}">Add to Shoppingcart</a>    
-                            <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>  
+                            <form method="post" class="product-form" action="{{ route('product.addToCart', ['id' => $product->id, 'quantity' => $product->quantity]) }}">
+                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                <img href="/shop/1" class="product-image" src="/images/{{ $product->afbeelding }}">
+                                <p class="productnaam"> {{ $product['productnaam'] }}</p> 
+                                <p class="productprijs"> &euro;{{ $product['prijs'] }}</p>
+                                <a class="information-title" href="/shop/{{ $product['id'] }}">Meer info...</a>        <input class="productquantiteit" type="number" name="quantity" id="quantity" value="{{ $product['quantity'] }}" required="required" min="1" placeholder="1">
+                                <input class="Shoppingcart-button-small" type="submit" value="Add to Shoppingcart">
+                            </form>      
                         </div>
                     </li>
                     @endforeach
