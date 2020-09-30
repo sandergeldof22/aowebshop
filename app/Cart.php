@@ -17,18 +17,23 @@ class Cart {
 	}
 
 	public function add($item, $id, $quantity) {
-		$storedItem = ['item' => $item, 'quantity' => $quantity, 'price' => $item->prijs, 'id' => $item->id];
+
+		$storedItem = ['item' => $item, 'quantity' => $quantity, 'price' => $item->price, 'id' => $item->id];
 
 		$storedItem['quantity'];
-		$storedItem['price'] = $item->prijs * $storedItem['quantity'];
+		$storedItem['price'] = $item->price * $storedItem['quantity'];
 		$this->items[$id] = $storedItem;
 		$this->totalQuantity++;
-		$this->totalPrice += $storedItem['price'];
+		$this->totalPrice += $storedItem['price'];      
+
+        session()->put('cart', $this);
+
+
 	}
 
 	public function updateItem($item, $id, $quantity) {
     	$this->items[$id]['quantity'] = $quantity;
-    	$this->items[$id]['price'] = $quantity * $item->prijs;
+    	$this->items[$id]['price'] = $quantity * $item->price;
 
     	if ($this->items[$id]['quantity'] == 0) {
     		unset($this->items[$id]);
@@ -40,6 +45,8 @@ class Cart {
     			$this->totalQuantity += $item['quantity'];
     			$this->totalPrice += $item['price'];    			
     		}
+
+        session()->put('Oldcart', $this);
     }
 
     public function deleteItem($item, $id){
@@ -54,4 +61,5 @@ class Cart {
     			}    		
     	}
     }
+
 }

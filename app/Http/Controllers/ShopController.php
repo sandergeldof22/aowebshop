@@ -51,7 +51,7 @@ class ShopController extends Controller
         return view('shop.checkOut');
     }
 
-    public function saveOrder() {
+    public function saveOrder(request $request) {
 
     	$klant = new Klanten();
 
@@ -106,6 +106,8 @@ class ShopController extends Controller
 
     		$order_details->save();
         };
+
+        $request->session()->pull('cart', $cart);
 
     	return redirect('/');
     }

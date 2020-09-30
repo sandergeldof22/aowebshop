@@ -7,14 +7,16 @@
 	<div class="order-holder">
 		<?php $orders=DB::table('orders')->get(); ?>
 		<?php $order_details=DB::table('order_details')->get(); ?>
-		<?php $klanten=DB::table('klanten')->get(); ?>
+		<?php $customers=DB::table('customers')->get(); ?>
 		<?php $product=DB::table('product')->get(); ?>
 		<div class="order-box">
 			<li class="order-list">
 				<div class="orders">
 					<h2 class="bestelling-intro">Hier vindt u al uw bestellingen</h2>
-					@foreach($orders as $order)	
-					<p class="information-opener" id="informatie-{{ $order->id }}">Bestelling voor: {{ $order->klanten_naam }}</p>
+					@if (Auth::check())
+					@foreach($orders as $order)
+					@if ($order->user_id == Auth::user()->id)	
+					<p class="information-opener" id="informatie-{{ $order->id }}">Bestelling voor: {{ $order->customer_name }}</p>
 					<div class="bestelling-klik" class="none" id="bestelling-{{ $order->id }}">	
 						<div class="bestelling-info" id="bestelling-producten-gegevens">
 							<p>Bestellinggegevens:</p>
@@ -23,33 +25,38 @@
 									@if ($order_detail->product_id == $aproduct->id)
 										@if($order_detail->order_id == $order->id)
 										<div class="bestelling-producten">								
-											<img class="bestelling-images" src="/images/{{ $aproduct->afbeelding }}">
-											<p>Naam: {{ $aproduct->productnaam }}</p>
-											<p>Quantiteit: {{ $order_detail->quantiteit }}</p>
-											<p>Prijs per Stuk: &euro; {{ $aproduct->prijs }}
+											<img class="bestelling-images" src="/images/{{ $aproduct->image }}">
+											<p>Naam: {{ $aproduct->productname }}</p>
+											<p>Quantiteit: {{ $order_detail->quantity }}</p>
+											<p>Prijs per Stuk: &euro; {{ $aproduct->price }}
 										</div>		
 										@endif
 									@endif
 								@endforeach
 							@endforeach
 						</div>		
-						@foreach($klanten as $klant)
-						@if ($klant->id == $order->klanten_id)
+						@foreach($customers as $customer)
+						@if ($customer->id == $order->customer_id)
 						<div class="bestelling-info" id="bestelling-adress-gegevens">
 							<p>Klantengegevens:</p>
-							<p>Uw Voor- en Achternaam: {{ $klant->voornaam }} {{ $klant->achternaam }}</p>
-							<p>Uw adress: {{ $klant->adress }}</p>
-							<p>Uw postcode: {{ $klant->postcode }}</p>
-							<p>Uw telefoonnummer: {{ $klant->telefoonnummer }}</p>
-							<p>Uw emailadress: {{ $klant->emailadress }}</p>
+							<p>Uw Voor- en Achternaam: {{ $customer->first_name }} {{ $customer->last_name }}</p>
+							<p>Uw adress: {{ $customer->adress }}</p>
+							<p>Uw postcode: {{ $customer->postal_code }}</p>
+							<p>Uw telefoonnummer: {{ $customer->telephone_number }}</p>
+							<p>Uw emailadress: {{ $customer->emailadress }}</p>
 						</div>
 						@endif
 						@endforeach
 						<div class="bestelling-info" id="bestelling-betaal-gegevens">
-							<p>Totale prijs: &euro; {{ $order->totale_prijs }}</p>
+							<p>Totale prijs: &euro; {{ $order->total_price }}</p>
 						</div>
 					</div>
+					@endif
 					@endforeach
+					@else
+					<h3 class="niet-ingelogd">U moet ingelogd zijn wilt u uw bestellingen zien !</h3>
+					<a class="niet-ingelogd-button" href="/login">login</a>
+					@endif
 				</div>
 			</li>
 		</div>

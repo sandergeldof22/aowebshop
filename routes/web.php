@@ -61,6 +61,10 @@ Route::post('/addToCart/{id}', [
 	'as' => 'product.addToCart'
 ]);
 
+Route::get('/addToCart/{id}', [
+	'uses' => 'ProductController@addToCart',
+	'as' => 'product.addToCart'
+]);
 
 Route::get('/shoppingcart', [
 	'uses' => 'ShoppingcartController@getShoppingCart',

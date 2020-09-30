@@ -2,17 +2,21 @@
 
 @section('content')
         <div class="flex-center position-ref full-height">
-
+        <?php $categorie=DB::table('categorie')->get(); ?>
             <div class="product-details">
                 <div class="product-information">
                     <div class="product-image-holder">
-                        <img src="/images/{{ $product->afbeelding }}">
+                        <img src="/images/{{ $product->image }}">
                     </div>
                     <div class="product-information-details">
-                        <h2>{{ $product->productnaam }}</h2>
-                        <p>Categorie: {{ $product->categorie }}</p>
-                        <p>Prijs: &euro;{{ $product->prijs }}</p>
-                        <p>Merk: {{ $product->merk }}</p>
+                        <h2>{{ $product->productname }}</h2>
+                        @foreach($categorie as $categorie)
+                        @if($product->categorie_id == $categorie->id)
+                        <p>Categorie: {{ $categorie->name }}</p>
+                        @endif
+                        @endforeach
+                        <p>Prijs: &euro;{{ $product->price }}</p>
+                        <p>Merk: {{ $product->brand }}</p>
                     </div>
                 </div>
                 <div class="product-interactivity">
@@ -22,7 +26,7 @@
                     <p>&#10004; Dag- en Nacht klantenservice.</p>
                 </div>
                 <div class="product-description">
-                    <p>{{ $product->omschrijving }}</p>
+                    <p>{{ $product->description }}</p>
                 </div>
             </div>
         </div>

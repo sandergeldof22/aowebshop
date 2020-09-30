@@ -30,17 +30,21 @@ class ShoppingcartController extends Controller
         if (!Session::has('cart')) {
             return view('shop.shoppingCart');
         }        
-        $hoeveelheid = $request->input('quantity');
+
+        $quantity = $request->input('quantity');
         $oldCart = Session::has('cart') ? Session::get('cart') : null; //null nog nodig hier?
         $cart = new Cart($oldCart);
         $product = Product::find($id);
         
                 foreach ($cart->items as $item){
                     if ($item['item']['id'] == $id){
-                        $item['quantity'] = $hoeveelheid;                    
-                        $cart->updateItem($product, $id, $hoeveelheid);
+                        $item['quantity'] = $quantity;                    
+                        $cart->updateItem($product, $id, $quantity);
                     }
-                } 
+                }
+
+
+
         if (empty($cart->items)){
             $request->session()->pull('cart', $cart);
         } else {
@@ -64,7 +68,7 @@ class ShoppingcartController extends Controller
             }
         }
         if (empty($cart->items)){
-            $request->session()->pull('cart', $cart);
+            $request->session()->put('cart', $cart);
         } else {
             $request->session()->put('cart', $cart);
         }
