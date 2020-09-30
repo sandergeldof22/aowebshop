@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Orders;
 use App\Order_details;
-use App\Klanten;
+use App\Customers;
 use App\Cart;
-use App\Product_Categories;
+use App\Categories;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
@@ -55,13 +55,13 @@ class ShopController extends Controller
 
     	$customer = new Customers();
 
-    	$customer->voornaam = request('first_name');
-    	$customer->achternaam = request('last_name');
+    	$customer->first_name = request('first_name');
+    	$customer->last_name = request('last_name');
     	$customer->adress = request('adress');
-    	$customer->postcode = request('postal_code');
-    	$customer->leeftijd = request('age');
+    	$customer->postal_code = request('postal_code');
+    	$customer->age = request('age');
     	$customer->emailadress = request('emailadress');
-    	$customer->telefoonnummer = request('telephone_number');
+    	$customer->telephone_number = request('telephone_number');
 
     	$customer->save();
 
@@ -76,7 +76,7 @@ class ShopController extends Controller
 
     	$first_name = $customer->first_name;
     	$last_name = $customer->last_name;
-    	$naam = $first_name . ' ' . $last_name;		
+    	$name = $first_name . ' ' . $last_name;		
 
 		if(Auth::check() == false) {
 			$order->customer_id = $customer->id;

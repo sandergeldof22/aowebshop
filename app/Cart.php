@@ -32,17 +32,17 @@ class Cart {
 	}
 
 	public function updateItem($item, $id, $quantity) {
+
     	$this->items[$id]['quantity'] = $quantity;
     	$this->items[$id]['price'] = $quantity * $item->price;
 
     	if ($this->items[$id]['quantity'] == 0) {
     		unset($this->items[$id]);
+            $this->totalQuantity--;
     	}    	
 
-    	$this->totalQuantity = 0;
     	$this->totalPrice = 0;
     		foreach($this->items as $item) {
-    			$this->totalQuantity += $item['quantity'];
     			$this->totalPrice += $item['price'];    			
     		}
 
@@ -52,11 +52,10 @@ class Cart {
     public function deleteItem($item, $id){
     	if ($this->items[$id]['id'] == $id){
     		unset($this->items[$id]);
+            $this->totalQuantity--;
 
-    		$this->totalQuantity = 0;
     		$this->totalPrice = 0;
     			foreach($this->items as $item) {
-    				$this->totalQuantity += $item['quantity'];
     				$this->totalPrice += $item['price'];    			
     			}    		
     	}
