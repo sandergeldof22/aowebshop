@@ -53,17 +53,17 @@ class ShopController extends Controller
 
     public function saveOrder(request $request) {
 
-    	$klant = new Klanten();
+    	$customer = new Customers();
 
-    	$klant->voornaam = request('voornaam');
-    	$klant->achternaam = request('achternaam');
-    	$klant->adress = request('adress');
-    	$klant->postcode = request('postcode');
-    	$klant->leeftijd = request('leeftijd');
-    	$klant->emailadress = request('emailadress');
-    	$klant->telefoonnummer = request('telefoonnummer');
+    	$customer->voornaam = request('first_name');
+    	$customer->achternaam = request('last_name');
+    	$customer->adress = request('adress');
+    	$customer->postcode = request('postal_code');
+    	$customer->leeftijd = request('age');
+    	$customer->emailadress = request('emailadress');
+    	$customer->telefoonnummer = request('telephone_number');
 
-    	$klant->save();
+    	$customer->save();
 
     	if (!Session::has('cart')) {
             return view('shop.shoppingCart');
@@ -74,21 +74,21 @@ class ShopController extends Controller
 		$order_details = new Order_details();
 		$order = new Orders();
 
-    	$voornaam = $klant->voornaam;
-    	$achternaam = $klant->achternaam;
-    	$naam = $voornaam . ' ' . $achternaam;		
+    	$first_name = $customer->first_name;
+    	$last_name = $customer->last_name;
+    	$naam = $first_name . ' ' . $last_name;		
 
 		if(Auth::check() == false) {
-			$order->klanten_id = $klant->id;
-			$order->totale_prijs = $cart->totalPrice;
-			$order->klanten_naam = $naam;			
+			$order->customer_id = $customer->id;
+			$order->total_price = $cart->totalPrice;
+			$order->customer_name = $name;			
 			$order->save();
 		}else{
-			$order->totale_prijs = $cart->totalPrice;
+			$order->total_price = $cart->totalPrice;
 			$users = auth()->user()->id;
 			$order->user_id = $users;
-			$order->klanten_id = $klant->id;
-			$order->klanten_naam = $naam;			
+			$order->customer_id = $customer->id;
+			$order->customer_name = $name;			
 			$order->save();
 		}
 
@@ -100,8 +100,8 @@ class ShopController extends Controller
 
 			$order_details = new Order_details();        	
 			$order_details->product_id = $infoId;
-			$order_details->quantiteit = $infoQuantity;
-			$order_details->prijs = $infoPrice;
+			$order_details->quantity = $infoQuantity;
+			$order_details->price = $infoPrice;
 			$order_details->order_id = $Order_Id;
 
     		$order_details->save();
