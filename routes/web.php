@@ -17,23 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop', [
+Route::get('/shop/', [
 	'uses' => 'ShopController@index',
-	'as' => 'shop.index'	
+	'as' => 'shop.index'
+]);
+Route::post('/shop/', [
+	'uses' => 'ShopController@index',
+	'as' => 'shop.index'
 ]);
 
 Route::get('/shop/{id}', [
 	'uses' => 'ShopController@details',
 	'as' => 'shop.details'
-]);
-
-Route::get('/shop/', [
-	'uses' => 'ShopController@filter',
-	'as' => 'shop.filter'
-]);
-Route::post('/shop/', [
-	'uses' => 'ShopController@filter',
-	'as' => 'shop.filter'
 ]);
 
 Route::get('/addAndGetShoppingCart/{id}', [

@@ -2,7 +2,6 @@
 
 @section('content')
         <div class="flex-center position-ref full-height">
-        <?php $categorie=DB::table('categorie')->get(); ?>
             <div class="product-details">
                 <div class="product-information">
                     <div class="product-image-holder">
@@ -10,7 +9,7 @@
                     </div>
                     <div class="product-information-details">
                         <h2>{{ $product->productname }}</h2>
-                        @foreach($categorie as $categorie)
+                        @foreach($categories as $categorie)
                         @if($product->categorie_id == $categorie->id)
                         <p>Categorie: {{ $categorie->name }}</p>
                         @endif

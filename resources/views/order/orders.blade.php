@@ -5,10 +5,6 @@
 		<img class="order-banner" src="images/Nix.png">
 	</div>
 	<div class="order-holder">
-		<?php $orders=DB::table('orders')->get(); ?>
-		<?php $order_details=DB::table('order_details')->get(); ?>
-		<?php $customers=DB::table('customers')->get(); ?>
-		<?php $product=DB::table('product')->get(); ?>
 		<div class="order-box">
 			<li class="order-list">
 				<div class="orders">

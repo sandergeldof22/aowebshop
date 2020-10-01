@@ -8,30 +8,17 @@ use App\Orders;
 use App\Order_details;
 use App\Customers;
 use App\Cart;
-use App\Categories;
+use App\Categorie;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use App\Http\Request as HttpRequest;
 
 class ShopController extends Controller
 {
 
-	public function index(){
+	public function index(Request $request){
 
-		$products = Product::all();
-
-		return view('shop.index', [
-			'product' => $products,
-		]);
-	}
-
-	public function details($id){
-
-		$product = Product::findOrFail($id);
-
-    	return view('shop.show', ['product' => $product]);
-	}
-
-	public function filter(Request $request){
+		$categories = Categorie::all();
 
 		$categorieFilter = $request->input('categories');
 
@@ -43,8 +30,20 @@ class ShopController extends Controller
 
 		return view('shop.index', [
 			'product' => $filteredProducts,
-		]);
-		
+			'categories' => $categories
+		]);	
+	}
+
+	public function details($id){
+
+		$product = Product::findOrFail($id);
+
+		$categories = Categorie::all();
+
+    	return view('shop.show', [
+    		'product' => $product,
+    		'categories' => $categories
+    	]);
 	}
 
 	public function toCheckOut() {
