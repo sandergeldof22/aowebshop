@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\Orders;
-use App\Order_details;
-use App\Customers;
+use App\Order;
+use App\Order_detail;
+use App\Customer;
 use App\Cart;
-use App\Categorie;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Http\Request as HttpRequest;
@@ -22,7 +22,7 @@ class ShopController extends Controller
 	*/
 	public function index(Request $request){
 
-		$categories = Categorie::all();
+		$categories = Category::all();
 
 		$categorieFilter = $request->input('categories');
 
@@ -47,7 +47,7 @@ class ShopController extends Controller
 
 		$product = Product::findOrFail($id);
 
-		$categories = Categorie::all();
+		$categories = Category::all();
 
     	return view('shop.show', [
     		'product' => $product,
@@ -76,7 +76,9 @@ class ShopController extends Controller
             return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
         }      	
 
-    	$customer = new Customers();
+        $cart = Session::get('cart');
+
+    	$customer = new Customer();
 
     	$customer->first_name = request('first_name');
     	$customer->last_name = request('last_name');
@@ -87,7 +89,7 @@ class ShopController extends Controller
     	$customer->telephone_number = request('telephone_number');
     	$customer->save();
         
-		$order = new Orders();
+		$order = new Order();
 
     	$first_name = $customer->first_name;
     	$last_name = $customer->last_name;
@@ -98,7 +100,9 @@ class ShopController extends Controller
 		$order->customer_name = $name;			
 		if(Auth::check() == true) {
 			//indien een klant is ingelogd, geef dan ook zijn user_id mee.
-			$users = auth()->user()->id;
+			$order->user_id = auth()->user()->id;
+		} else {
+			dd('niet ingelogd');
 		}
 		$order->save();
 
@@ -108,7 +112,7 @@ class ShopController extends Controller
         	$infoPrice = $item['price'];
         	$Order_Id = $order->id;
 
-			$order_details = new Order_details();        	
+			$order_details = new Order_detail();        	
 			$order_details->product_id = $infoId;
 			$order_details->quantity = $infoQuantity;
 			$order_details->price = $infoPrice;

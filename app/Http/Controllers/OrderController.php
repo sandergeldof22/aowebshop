@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
-use App\Orders;
-use App\Order_details;
-use App\Customers;
+use App\Order;
+use App\Order_detail;
+use App\Customer;
 
 use App\Http\Request as HttpRequest;
 use Session;
@@ -20,9 +20,9 @@ class OrderController extends Controller
 	*/
 	public function index(){
 
-		$orders = Orders::all();
-		$order_details = Order_details::all();
-		$customers = Customers::all();
+		$orders = Order::all();
+		$order_details = Order_detail::all();
+		$customers = Customer::all();
 		$product = Product::all();
 
 		return view('order/orders', [

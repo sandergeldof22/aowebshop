@@ -45,7 +45,6 @@ class Cart {
             $this->items[$id] = $storedItem;
             
         }          
-
         session()->put('cart', $this);
 	}
     /*
