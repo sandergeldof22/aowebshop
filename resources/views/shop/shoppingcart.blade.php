@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-
-
 <h2 class="shoppingcart-welkom">Welkom in de Shoppingcart, hier vind u al uw producten</h1>
 <div class="shoppingcart-container">
 	<div class="shoppingcart-products">

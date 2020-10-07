@@ -14,7 +14,10 @@ use Session;
 
 class OrderController extends Controller
 {
-
+	/*
+	*Deze functie haalt alle gegevens op uit verschillende databasen en geeft deze mee aan de view.
+	*de view voegt deze samen om een duidelijk beeld te geven van een en meerdere Orders.
+	*/
 	public function index(){
 
 		$orders = Orders::all();

@@ -11,13 +11,12 @@ use App\Http\Request as HttpRequest;
 
 class ShoppingcartController extends Controller
 {
-	public function index(){
-		return view('shoppingcart/shoppingCart');
-	}
-
+    /* 
+    * Functie haalt de shoppingcart op en geeft deze mee aan de view
+    */
     public function getShoppingCart() {
     	if (!Session::has('cart')) {
-    		return view('shop.shoppingCart');
+    		return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
     	}
     	$oldCart = Session::get('cart');
     	$cart = new Cart($oldCart);
@@ -25,14 +24,18 @@ class ShoppingcartController extends Controller
     	return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 
     }
-
+    /* 
+    * Functie ziet het ingevoerde nieuwe kwantiteit, haalt de cart op.
+    * loopt door de items heen tot hij het item gevonden heeft die hij zoekt en update het item naar de nieuwe kwantiteit
+    *
+    */
     public function updateCart(Request $request, $id) {
         if (!Session::has('cart')) {
-            return view('shop.shoppingCart');
+            return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
         }        
 
         $quantity = $request->input('quantity');
-        $oldCart = Session::has('cart') ? Session::get('cart') : null; //null nog nodig hier?
+        $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $product = Product::find($id);
         
@@ -43,22 +46,16 @@ class ShoppingcartController extends Controller
                     }
                 }
 
-
-
-        if (empty($cart->items)){
-            $request->session()->pull('cart', $cart);
-        } else {
-            $request->session()->put('cart', $cart);
-        }
-
         return redirect()->route('shoppingcart.shoppingCart');
     }
-
+    /* 
+    * Functie zoekt een product in de cart gebasseerd op het ID en voert dan de deleteItem functie uit, die hem verwijdert uit de cart 
+    */
     public function deleteFromCart(Request $request, $id){
         if (!Session::has('cart')) {
-            return view('shop.shoppingCart');
+            return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
         }  
-        $oldCart = Session::has('cart') ? Session::get('cart') : null; //null nog nodig hier?
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart); 
         $product = Product::find($id);
 
@@ -67,12 +64,7 @@ class ShoppingcartController extends Controller
                 $cart->deleteItem($item, $id);         
             }
         }
-        if (empty($cart->items)){
-            $request->session()->put('cart', $cart);
-        } else {
-            $request->session()->put('cart', $cart);
-        }
-        
+
         return redirect()->route('shoppingcart.shoppingCart');         
     }
 
