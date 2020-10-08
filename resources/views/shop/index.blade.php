@@ -7,7 +7,6 @@
                     <form action="" method="POST"> 
                     <div class="filter-navigation" id="category-filter">
                         <h2 class="filter-title">Categoriëen</h2>
-
                         <span class="checkbox-input">
                         @foreach($categories as $categorie) 
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

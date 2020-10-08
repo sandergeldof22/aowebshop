@@ -23,7 +23,6 @@ class ShopController extends Controller
 	public function index(Request $request){
 
 		$categories = Category::all();
-
 		$categorieFilter = $request->input('categories');
 
 		if(empty($categorieFilter)){
@@ -46,7 +45,6 @@ class ShopController extends Controller
 	public function details($id){
 
 		$product = Product::findOrFail($id);
-
 		$categories = Category::all();
 
     	return view('shop.show', [
@@ -79,7 +77,6 @@ class ShopController extends Controller
         $cart = Session::get('cart');
 
     	$customer = new Customer();
-
     	$customer->first_name = request('first_name');
     	$customer->last_name = request('last_name');
     	$customer->adress = request('adress');
@@ -90,7 +87,6 @@ class ShopController extends Controller
     	$customer->save();
         
 		$order = new Order();
-
     	$first_name = $customer->first_name;
     	$last_name = $customer->last_name;
     	$name = $first_name . ' ' . $last_name;		
@@ -101,8 +97,6 @@ class ShopController extends Controller
 		if(Auth::check() == true) {
 			//indien een klant is ingelogd, geef dan ook zijn user_id mee.
 			$order->user_id = auth()->user()->id;
-		} else {
-			dd('niet ingelogd');
 		}
 		$order->save();
 
@@ -117,14 +111,13 @@ class ShopController extends Controller
 			$order_details->quantity = $infoQuantity;
 			$order_details->price = $infoPrice;
 			$order_details->order_id = $Order_Id;
-
     		$order_details->save();
         };
 
         //session->flush() leeft de shopping cart terwijl een ingelogd persoon ingelogd blijft.
         session()->flush();
 
-    	return redirect('/');
+    	return redirect('/orders');
     }
 
 }

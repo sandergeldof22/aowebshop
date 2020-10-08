@@ -80,9 +80,12 @@ html, body {
 .navbar-a {
   display: block;
   color: white;
+  position: relative;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
   text-decoration: none;
+  display: inline-block;
+  margin-bottom: -10px;
 }
 
 .navbar-a:hover {
@@ -712,6 +715,7 @@ img{
 }
 
 .dropdown-menu > a {
+  margin-top: -5px;
   color: white;
   padding: 12px 16px;
   text-decoration: none;
@@ -727,6 +731,7 @@ img{
 }
 
 .logged-in:hover > div {
+  color: white;
   display: block;
 }
 
