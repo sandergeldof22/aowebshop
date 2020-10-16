@@ -53,7 +53,7 @@ class Cart {
     *Berekent de totale prijs opnieuw en slaat dit op in de cart.
     *
     */
-	public function updateItem($item, $id, $quantity) {
+	public function update($item, $id, $quantity) {
 
     	$this->items[$id]['quantity'] = $quantity;
     	$this->items[$id]['price'] = $quantity * $item->price;
@@ -78,7 +78,7 @@ class Cart {
     *Hierna berekent hij opnieuw de prijs van alle producten nog aanwezig in de Cart.
     *Daarna slaat de session dit op in de cart.
     */
-    public function deleteItem($item, $id){
+    public function delete($item, $id){
     	if ($this->items[$id]['id'] == $id){
     		unset($this->items[$id]);
             $this->totalQuantity--;

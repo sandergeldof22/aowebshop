@@ -46,6 +46,9 @@
 						<div class="bestelling-info" id="bestelling-betaal-gegevens">
 							<p>Totale prijs: &euro; {{ $order->total_price }}</p>
 						</div>
+						<div class="bestelling-info" id="bestelling-annuleer">
+							<a class="annuleer-button" href="{{ route('order.deleteOrder', ['id' => $order->id]) }}">Annuleer</a>
+						</div>
 					</div>
 					@endif
 					@endforeach

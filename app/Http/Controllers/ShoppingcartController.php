@@ -42,7 +42,7 @@ class ShoppingcartController extends Controller
                 foreach ($cart->items as $item){
                     if ($item['item']['id'] == $id){
                         $item['quantity'] = $quantity;                    
-                        $cart->updateItem($product, $id, $quantity);
+                        $cart->update($product, $id, $quantity);
                     }
                 }
 
@@ -61,7 +61,7 @@ class ShoppingcartController extends Controller
 
         foreach($cart->items as $item){
             if ($item['id'] == $id){               
-                $cart->deleteItem($item, $id);         
+                $cart->delete($item, $id);         
             }
         }
 

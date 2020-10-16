@@ -23,14 +23,26 @@ class OrderController extends Controller
 		$orders = Order::all();
 		$order_details = Order_detail::all();
 		$customers = Customer::all();
-		$product = Product::all();
+		$products = Product::all();
 
 		return view('order/orders', [
 			'orders' =>  $orders,
 			'order_details' =>  $order_details,
 			'customers' =>  $customers,
-			'product' =>  $product
+			'product' =>  $products
 		]);
+	}
+
+	public function deleteOrder(Request $request, $id){
+		$order = Order::find($id);
+		$order_detail = Order_detail::where('order_id', $order->id);
+		$customer = Customer::where('id', $order->customer_id);
+
+		$order_detail->delete();
+		$order->delete();
+		$customer->delete();
+
+		return redirect('/orders');
 	}
 	
 

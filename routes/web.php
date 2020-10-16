@@ -76,6 +76,11 @@ Route::get('/orders/', [
 	'as' => 'order.orders'
 ]);
 
+Route::get('/orders/{id}', [
+	'uses' => 'OrderController@deleteOrder',
+	'as' => 'order.deleteOrder'
+]);
+
 Route::get('/login', function() {
 	return view('login');
 });

@@ -13,7 +13,11 @@ class RenameTablesAgain extends Migration
      */
     public function up()
     {
-        Schema::rename('categorie', 'category');
+        Schema::rename('category', 'categories');
+        Schema::rename('customer', 'customers');
+        Schema::rename('order', 'orders');
+        Schema::rename('order_detail', 'order_details');
+        Schema::rename('product', 'products');
     }
 
     /**
