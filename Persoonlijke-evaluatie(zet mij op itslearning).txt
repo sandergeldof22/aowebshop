@@ -1,0 +1,25 @@
+Evaluatie Mijzelf:
+
+-Persoonlijk vond ik Laravel een leuke opdracht. Het was een opdracht waar je je hoofd iets dieper in de stof moest steken en vereiste iets meer van ons. Een leuke uitdaging.
+
+-In het begin van de opdracht waren alle mappen en files best overweldigend als je nog nooit met laravel gewerkt hebt maar na wat youtube en documentatie wordt het duidelijk hoe en wat.
+
+-Wat erg goed en relatief makkelijk ging was het routen en succesvol een view ophalen met de data die ik nodig had bijvoorbeeld wat producten. Dit ging redelijk vlekkeloos en errors die verschenen
+waren ook altijd goed op te lossen
+
+-Wat iets minder goed ging was de shoppingcart. Hier liep ik steeds tegen een nieuw probleem aan die opgelost moest worden. Hier begon ik met een simpele functie die zich maar bleef uitbreiden.
+Tot op het punt waar het heel onoverzichtelijk werd. Toen heb ik gewoon alles weggedaan en van scratch begonnen met alle problemen die ik zou gaan krijgen in mn achterhoofd. Uiteindelijk is het hiermee dan alsnog gelukt.
+
+-Het feit dat ik veel gediscussierd heb met Khizer (en Yavuz soms ook) over verschillende onderwerpen (bijv: hoort de session management nou in de controller of method).
+Hierdoor heb ik me toch redelijk verdiept in de stof wat zeker heeft geholpen de algemene draad van Laravel op te pakken.
+
+
+
+Evaluatie medestudent:
+.
+.
+.
+.
+.
+.
+.

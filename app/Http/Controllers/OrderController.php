@@ -44,6 +44,10 @@ class OrderController extends Controller
 
 		return redirect('/orders');
 	}
+
+	public function noauth(){
+		return view('order.unauthenticated');
+	}
 	
 
 }

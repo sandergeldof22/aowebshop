@@ -56,10 +56,6 @@ Route::post('/addToCart/{id}', [
 	'as' => 'product.addToCart'
 ]);
 
-Route::get('/addToCart/{id}', [
-	'uses' => 'ProductController@addToCart',
-	'as' => 'product.addToCart'
-]);
 
 Route::get('/shoppingcart', [
 	'uses' => 'ShoppingcartController@getShoppingCart',
@@ -74,7 +70,7 @@ Route::get('/checkout', [
 Route::get('/orders/', [
 	'uses' => 'OrderController@index',
 	'as' => 'order.orders'
-]);
+])->middleware('order');
 
 Route::get('/orders/{id}', [
 	'uses' => 'OrderController@deleteOrder',
@@ -84,6 +80,11 @@ Route::get('/orders/{id}', [
 Route::get('/login', function() {
 	return view('login');
 });
+
+Route::get('/unauthenticated', [
+	'uses' => 'OrderController@noauth',
+	'as' => 'order.noauth'
+]);
 
 
 Auth::routes();

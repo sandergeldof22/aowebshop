@@ -11,7 +11,7 @@
 			<li class="shoppingcart-product">
 				<img class="product-image" src="/images/{{ $product['item']['image'] }}">&nbsp;
 				<strong class="product-cart-naam">{{ $product['item']['productname'] }}</strong>
-				<button onclick="location.href='{{ route('shoppingcart.deleteFromCart', ['id' => $product['id']]) }}'" class="deletebutton">X</button>			
+				<button onclick="location.href='{{ route('shoppingcart.deleteFromCart', ['id' => $product['id'] ]) }}'" class="deletebutton">X</button>		
 				&nbsp;<span class="product-cart-prijs">Prijs per stuk: &euro;{{ $product['item']['price'] }}</span><br>
 				<form class="cart-form" method="post" action="{{ route('shoppingcart.updateCart', ['id' => $product['id']]) }}">
 					<span class="cart-form-span"><label class="shopping-cart-quantity">Totale hoeveelheid:&nbsp;{{ $product['quantity'] }}</label>

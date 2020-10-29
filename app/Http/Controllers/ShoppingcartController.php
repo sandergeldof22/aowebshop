@@ -18,8 +18,8 @@ class ShoppingcartController extends Controller
     	if (!Session::has('cart')) {
     		return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
     	}
-    	$oldCart = Session::get('cart');
-    	$cart = new Cart($oldCart);
+
+    	$cart = new Cart();
 
     	return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 
@@ -35,16 +35,10 @@ class ShoppingcartController extends Controller
         }        
 
         $quantity = $request->input('quantity');
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
+        $cart = new Cart();
         $product = Product::find($id);
-        
-                foreach ($cart->items as $item){
-                    if ($item['item']['id'] == $id){
-                        $item['quantity'] = $quantity;                    
-                        $cart->update($product, $id, $quantity);
-                    }
-                }
+
+        $cart->update($product, $id, $quantity);
 
         return redirect()->route('shoppingcart.shoppingCart');
     }
@@ -55,15 +49,10 @@ class ShoppingcartController extends Controller
         if (!Session::has('cart')) {
             return view('shop.shoppingCart')->with('message', 'Error, geen shoppingcart gevonden !');
         }  
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart); 
+        $cart = new Cart();
         $product = Product::find($id);
-
-        foreach($cart->items as $item){
-            if ($item['id'] == $id){               
-                $cart->delete($item, $id);         
-            }
-        }
+            
+        $cart->delete($product, $id);         
 
         return redirect()->route('shoppingcart.shoppingCart');         
     }

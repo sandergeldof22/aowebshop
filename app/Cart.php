@@ -28,7 +28,7 @@ class Cart {
     *als het product al in de cart zit, verhoogt hij de totale prijs en past hij het huidige product aan in quantiteit en prijs.
     */
 	public function add($item, $id, $quantity) {
-
+        //'id !' 
 		$storedItem = ['item' => $item, 'quantity' => $quantity, 'price' => $item->price, 'id' => $item->id];
 
         if (isset($this->items[$id]['id']) == false) {
@@ -43,8 +43,8 @@ class Cart {
             $storedItem['price'] = $item->price * $storedItem['quantity'];
             $this->totalPrice = $this->totalPrice + $extraPrice;
             $this->items[$id] = $storedItem;
-            
-        }          
+       
+        }         
         session()->put('cart', $this);
 	}
     /*
@@ -54,21 +54,21 @@ class Cart {
     *
     */
 	public function update($item, $id, $quantity) {
-
     	$this->items[$id]['quantity'] = $quantity;
     	$this->items[$id]['price'] = $quantity * $item->price;
 
-    	if ($this->items[$id]['quantity'] == 0) {
-    		unset($this->items[$id]);
-            $this->totalQuantity--;
-    	}    	
+    	    if ($this->items[$id]['quantity'] == 0) {
+    		    unset($this->items[$id]);
+                $this->totalQuantity--;
+    	    }    	
 
-    	$this->totalPrice = 0;
-    		foreach($this->items as $item) {
-    			$this->totalPrice += $item['price'];    			
-    		}
+    	    $this->totalPrice = 0;
+    		    foreach($this->items as $item) {
+    		        $this->totalPrice += $item['price'];    			
+    		    }            
 
-        session()->put('cart', $this);
+            session()->put('cart', $this);  
+
     }
 
 
