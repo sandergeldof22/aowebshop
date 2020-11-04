@@ -16,10 +16,10 @@ Hierdoor heb ik me toch redelijk verdiept in de stof wat zeker heeft geholpen de
 
 
 Evaluatie medestudent:
-.
-.
-.
-.
-.
-.
-.
+.route protection is iets waar je over na wilt denken.
+
+.misschien geen dark web cs style.
+
+.Naming conventie direct goed aanhouden dan krijg je ook geen 30/40 migration files
+
+@Yavuz Dereli

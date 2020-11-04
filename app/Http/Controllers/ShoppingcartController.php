@@ -39,6 +39,7 @@ class ShoppingcartController extends Controller
         $product = Product::find($id);
 
         $cart->update($product, $id, $quantity);
+        $cart->calculate();
 
         return redirect()->route('shoppingcart.shoppingCart');
     }
@@ -51,10 +52,11 @@ class ShoppingcartController extends Controller
         }  
         $cart = new Cart();
         $product = Product::find($id);
-            
-        $cart->delete($product, $id);         
+        $cart->delete($product, $id); 
+        $cart->calculate();                  
 
-        return redirect()->route('shoppingcart.shoppingCart');         
+        return redirect()->route('shoppingcart.shoppingCart');  
+     
     }
 
 }

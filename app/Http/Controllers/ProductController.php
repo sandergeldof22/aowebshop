@@ -24,6 +24,7 @@ class ProductController extends Controller
     	$cart = new Cart();
 
     	$cart->add($product, $product->id, $quantity);
+        $cart->calculate();
         return redirect('/shop');
     }
 
@@ -37,6 +38,7 @@ class ProductController extends Controller
         $quantity = '1';       
         $cart = new Cart();
         $cart->add($product, $product->id, $quantity);
+        $cart->calculate();
 
         return view('shop.shoppingCart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
